@@ -1,6 +1,6 @@
 ---
 title: "Lista de Exercícios 3 - ADAR/UFSM"
-author: "Seu nome aqui"
+author: "Gabriel S. Borba"
 date: "2022-12-07"
 output: html_document
 ---
