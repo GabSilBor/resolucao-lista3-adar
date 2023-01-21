@@ -406,7 +406,27 @@ tibble [730 x 183] (S3: tbl_df/tbl/data.frame)
 ```
 
 ```{r}
-#nao sei como fazer esta
+var_met_hora <- import(
+  file = "arq_xls.xls",
+  col_names = FALSE,
+  skip = 10
+)
+
+var_met_hora <- var_met_hora[1,2:ncol(var_met_hora)]
+#convertendo df para vetor obtendo horarios
+var_met_hora <- c(t(var_met_hora))
+#c(t(as.matrix(var_met_hora)))
+
+#remover NAs
+var_met_hora <- var_met_hora[!is.na(var_met_hora)]
+#convertendo em numerico
+var_met_hora <- as.numeric(var_met_hora)
+
+#deixar de 0 a 23
+var_met_hora <- var_met_hora/100
+
+names(var_met)[-1] <- paste0(names(var_met)[-1], "_")
+names(var_met)[-1] <- paste0(names(var_met)[-1], var_met_hora)
 
 ```
 
